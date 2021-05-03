@@ -10,17 +10,18 @@ class PostController extends Controller
     function index()
     {
 
-        //modification d'un post d'un post
+        $posts = Post::all();
+
+        /* $posts = Post::orderBy('title')->take(4)->get(); */
+        
+         //modification d'un post d'un post
 
         //on recupere un post avec find()
-        $post = Post::find(12);
+        /* $post = Post::find(12);
         
         $post->delete();
 
-        dd('post suprrimer!!');
-
-        $posts = Post::orderBy('title')->take(4)->get();
-        
+        dd('post suprrimer!!'); */
 
         /* $title= 'Mon premier titre';
         $title2= 'Mon deuxieme titre'; */
