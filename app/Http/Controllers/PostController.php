@@ -2,17 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     function index()
     {
-        $posts =[
-            'Mon premier titre',
-            'Mon deuxieme titre'
 
-        ];
+        //modification d'un post d'un post
+
+        //on recupere un post avec find()
+        $post = Post::find(12);
+        
+        $post->delete();
+
+        dd('post suprrimer!!');
+
+        $posts = Post::orderBy('title')->take(4)->get();
+        
 
         /* $title= 'Mon premier titre';
         $title2= 'Mon deuxieme titre'; */
@@ -34,20 +42,44 @@ class PostController extends Controller
         ]);
     
     }
+    //recuperation d'un post
     public function show($id)
     {
-        $posts = [
-            1 => 'mon titre number 1',
-            2 => 'mon titre number 2'
-        ];
+        //recupere l id ou renvoie une page 404 no found
+        //avec la methode findOrfail()
+        $post = Post::findOrfail($id);
 
-        $post = $posts[$id] ?? 'pas encore de titre';
+        //on recupere en fonction du title et on a eu aussi la maniere firstOrfail()
+        //qui nous enverra une erreur 404
+        /* $post = Post::where('title', 'Officia quae cupiditate et voluptas.')->firstOrfail(); */
+        
 
         return view('article', [
             'post' => $post
         ]);
 
     }
+    //cration d'un post
+    public function create()
+    {
+        return view('form');
+    }
+
+    public function store(Request $request)
+    {
+        /* $post = new Post();
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->save(); */
+
+        Post::create([
+            'title' => $request->title,
+            'content' => $request->content
+        ]);
+
+        dd('Post crée !');
+    }
+
     public function contact()
     {
         return view('contact');
