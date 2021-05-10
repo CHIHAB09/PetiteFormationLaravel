@@ -12,31 +12,6 @@ class PostController extends Controller
 
         $posts = Post::all();
 
-        /* $posts = Post::orderBy('title')->take(4)->get(); */
-        
-         //modification d'un post d'un post
-
-        //on recupere un post avec find()
-        /* $post = Post::find(12);
-        
-        $post->delete();
-
-        dd('post suprrimer!!'); */
-
-        /* $title= 'Mon premier titre';
-        $title2= 'Mon deuxieme titre'; */
-
-        // une methode pour afficher le $title
-       /*  return view('articles',compact('title')); */
-
-       //2eme methode pour afficher title
-       /* return view('articles')->with('title', $title); */
-
-       //troisieme methode pour afficher plusieur variables
-       /* return view('articles',compact('title','title2')); */
-
-       /* return view('articles', compact('posts')); */
-
        //methode avec un tableau
         return view('articles',[
             'posts' => $posts
@@ -87,3 +62,29 @@ class PostController extends Controller
     }
 
 }
+
+
+/* $posts = Post::orderBy('title')->take(4)->get(); */
+        
+         //modification d'un post d'un post
+
+        //on recupere un post avec find()
+        /* $post = Post::find(12);
+        
+        $post->delete();
+
+        dd('post suprrimer!!'); */
+
+        /* $title= 'Mon premier titre';
+        $title2= 'Mon deuxieme titre'; */
+
+        // une methode pour afficher le $title
+       /*  return view('articles',compact('title')); */
+
+       //2eme methode pour afficher title
+       /* return view('articles')->with('title', $title); */
+
+       //troisieme methode pour afficher plusieur variables
+       /* return view('articles',compact('title','title2')); */
+
+       /* return view('articles', compact('posts')); */

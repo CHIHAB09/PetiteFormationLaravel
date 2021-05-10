@@ -3,6 +3,8 @@
 @section('content')
     <h1>{{ $post->content }}</h1>
 
+    <span>{{ $post->image->path }}</span>
+
 <hr>
 <!-- 
     premiere methode
