@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('content')
-    <h1>Crée un nouveau post</h1>
+    <h1>Créer un nouveau post</h1>
 
     <form method="POST" action="{{ route('posts.store')}}">
     {{-- csrf c est une securite fournie par laravel pour eviter une injection non voulu --}}

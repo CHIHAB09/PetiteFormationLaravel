@@ -23,4 +23,10 @@
     <span>Aucun commentaire n'est enregister pour ce post...</span>
 @endforelse
 
+@forelse ($post->tags as $tag )
+<p>{{ $tag->nom }}</p>
+@empty
+<span>Aucun tag n'est enregister pour ce post...</span>
+@endforelse
+
 @endsection
